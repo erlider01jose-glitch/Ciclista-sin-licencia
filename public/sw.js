@@ -1,9 +1,10 @@
 const CACHE = 'ciclista-v1'
+const BASE = '/Ciclista-sin-licencia'
 
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE).then(cache =>
-      cache.addAll(['/', '/index.html'])
+      cache.addAll([BASE + '/', BASE + '/index.html'])
     )
   )
   self.skipWaiting()
