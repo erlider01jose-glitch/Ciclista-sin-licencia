@@ -1,0 +1,9 @@
+bota pra desacelera a bike
+
+bug quando escorrega em alguma banana, trava no frame 2 da animação da corrida;
+-- o bug acontece quando eu tropeço na ultima banana que coloquei.
+RESOLVIDO
+
+
+bug que o jogador atravessa o mapa e não passa nos pontos de virar aa camera
+fazer a camera girar pra ficar no angulo certo.

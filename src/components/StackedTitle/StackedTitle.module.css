@@ -1,0 +1,25 @@
+.wrapper {
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1;
+  display: inline-block;
+}
+
+.line {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.3em;
+  white-space: nowrap;
+}
+
+.main {
+  display: block;
+  line-height: 1.1;
+}
+
+.small {
+  display: block;
+  line-height: 1;
+  padding-top: 0.15em;
+  flex-shrink: 0;
+}

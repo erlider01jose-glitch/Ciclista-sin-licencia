@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 60px 20px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.vacio span { font-size: 2.5rem; }
+
+.card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #222;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.fecha {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.eliminar {
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+}
+
+.cardBody {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.separador {
+  height: 1px;
+  background: #2a2a2a;
+}
+
+.ganancia {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.positiva { color: #22c55e; }
+.negativa { color: #ef4444; }

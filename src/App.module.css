@@ -1,0 +1,30 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid #1e1e1e;
+  text-align: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.version {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 0.65rem;
+  color: #444;
+  letter-spacing: 0.05em;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 64px;
+}

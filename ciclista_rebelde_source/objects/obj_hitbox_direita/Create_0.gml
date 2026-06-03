@@ -1,0 +1,17 @@
+/// @description Inserir descrição aqui
+// Você pode escrever seu código neste editor
+
+image_alpha = 0.5;
+
+alarm[0] = 6;
+
+
+
+
+
+
+
+
+
+
+

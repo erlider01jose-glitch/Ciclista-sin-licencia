@@ -1,0 +1,44 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.coin {
+  border-radius: 50%;
+  background: #f5c518;
+  color: #000;
+  font-weight: 900;
+  border: 2px solid #c9a000;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bubble {
+  position: absolute;
+  left: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1e1e1e;
+  color: #f5c518;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #f5c518;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.bubble::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: #f5c518;
+}
