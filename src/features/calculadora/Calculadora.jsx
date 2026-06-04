@@ -5,11 +5,13 @@ import styles from './Calculadora.module.css'
 
 export default function Calculadora({ onRegistrar }) {
   const [kmRuta, setKmRuta] = useState('')
+  const [nota, setNota] = useState('')
   const [tasaCompra] = useLocalStorage('tasa_compra', '')
   const [tasaVenta]  = useLocalStorage('tasa_venta', '')
   const [peaje]      = useLocalStorage('comision_peaje', '')
   const [delivery]   = useLocalStorage('comision_delivery', '')
   const [rutas, setRutas] = useLocalStorage('rutas', [])
+  const [kmExtra] = useLocalStorage('km_extra', '')
 
   const calcular = () => {
     const km     = parseFloat(kmRuta)
@@ -30,12 +32,20 @@ export default function Calculadora({ onRegistrar }) {
 
   const r = calcular()
 
+  const todasRutas = Array.isArray(rutas) ? rutas : []
+  const kmExtraNum = parseFloat(kmExtra) || 0
+  const totalGanancias = todasRutas.reduce((acc, rr) => acc + (rr.ganancia || 0), 0)
+  const activos = kmExtraNum + totalGanancias
+  const minimoRequerido = r ? Math.floor(r.km * r.compra / r.venta) : null
+  const activosOk = minimoRequerido === null || activos >= minimoRequerido
+
   const registrar = () => {
-    if (!r) return
+    if (!r || !activosOk) return
     const nueva = {
       id: Date.now(),
       fecha: new Date().toLocaleDateString('es-VE'),
       hora: new Date().toLocaleTimeString('es-VE', { hour: '2-digit', minute: '2-digit' }),
+      nota: nota.trim(),
       km: r.km,
       tasaCompra: r.compra,
       tasaVenta: r.venta,
@@ -48,6 +58,8 @@ export default function Calculadora({ onRegistrar }) {
     }
     const listaActual = Array.isArray(rutas) ? rutas : []
     setRutas([nueva, ...listaActual])
+    setKmRuta('')
+    setNota('')
     onRegistrar()
   }
 
@@ -78,15 +90,43 @@ export default function Calculadora({ onRegistrar }) {
           <span>Ganancia</span>
           <span>{r ? `${r.ganancia >= 0 ? '+' : ''}$ ${r.ganancia.toFixed(2)}` : '—'}</span>
         </div>
+        <div className={styles.separador} />
+        <div className={styles.fila}>
+          <span>Activos</span>
+          <span style={{ color: activosOk ? '#888' : '#ef4444' }}>{activos.toFixed(1)} km</span>
+        </div>
+        {r && (
+          <div className={styles.fila}>
+            <span>Mínimo requerido</span>
+            <span style={{ color: activosOk ? '#22c55e' : '#ef4444' }}>{minimoRequerido} km</span>
+          </div>
+        )}
+      </div>
+
+      <div className={styles.notaWrapper}>
+        <label className={styles.notaLabel}>Nota</label>
+        <textarea
+          className={styles.notaInput}
+          placeholder="Observaciones de la ruta (opcional)"
+          value={nota}
+          onChange={e => setNota(e.target.value)}
+          rows={2}
+        />
       </div>
 
       <button
-        className={`${styles.btn} ${!r ? styles.btnDisabled : ''}`}
+        className={`${styles.btn} ${!r || !activosOk ? styles.btnDisabled : ''}`}
         onClick={registrar}
-        disabled={!r}
+        disabled={!r || !activosOk}
       >
         Registrar ruta
       </button>
+
+      {r && !activosOk && (
+        <p className={styles.advertencia}>
+          Activos insuficientes — necesitas {minimoRequerido} km mínimo
+        </p>
+      )}
     </div>
   )
 }

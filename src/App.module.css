@@ -12,6 +12,11 @@
   text-align: center;
   flex-shrink: 0;
   position: relative;
+  transition: margin-top 0.3s;
+}
+
+.headerWithBanner {
+  margin-top: 44px;
 }
 
 .version {

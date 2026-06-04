@@ -15,9 +15,144 @@
   color: #555;
   font-size: 0.9rem;
 }
-
 .vacio span { font-size: 2.5rem; }
 
+/* Total km */
+.kmCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.kmInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kmLabel {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.kmValor {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f5c518;
+}
+
+.kmUnit {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #888;
+}
+
+.kmDetalle {
+  font-size: 0.72rem;
+  color: #555;
+}
+
+.kmBtns {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+}
+
+.kmExtraBtn {
+  background: none;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #888;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.kmEditBtn {
+  background: none;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* Km extra input */
+.kmExtraRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.kmExtraInput {
+  flex: 1;
+  background: #1a1a1a;
+  border: 1px solid #f5c518;
+  border-radius: 10px;
+  color: #f0f0f0;
+  font-size: 1rem;
+  padding: 10px 12px;
+  outline: none;
+}
+
+.kmExtraGuardar {
+  background: #f5c518;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kmExtraCancelar {
+  background: none;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #888;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  gap: 8px;
+}
+
+.filtroBtn {
+  flex: 1;
+  padding: 8px 4px;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  background: #1a1a1a;
+  color: #666;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filtroActivo {
+  border-color: #f5c518;
+  color: #f5c518;
+  background: #1f1a00;
+}
+
+.sinResultados {
+  text-align: center;
+  color: #555;
+  font-size: 0.85rem;
+  padding: 24px 0;
+}
+
+/* Cards */
 .card {
   background: #1a1a1a;
   border: 1px solid #2a2a2a;
@@ -74,3 +209,11 @@
 
 .positiva { color: #22c55e; }
 .negativa { color: #ef4444; }
+
+.nota {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+  padding-top: 4px;
+  border-top: 1px solid #2a2a2a;
+}

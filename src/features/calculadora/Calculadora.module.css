@@ -37,6 +37,36 @@
 .positiva { color: #22c55e; }
 .negativa { color: #ef4444; }
 
+.notaWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.notaLabel {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.notaInput {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  color: #f0f0f0;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+}
+
+.notaInput:focus {
+  border-color: #f5c518;
+}
+
 .btn {
   width: 100%;
   padding: 14px;
@@ -58,4 +88,11 @@
 .btnGuardado {
   background: #22c55e;
   color: #fff;
+}
+
+.advertencia {
+  color: #ef4444;
+  font-size: 0.78rem;
+  text-align: center;
+  margin: 0;
 }

@@ -7,7 +7,7 @@ self.addEventListener('install', e => {
       cache.addAll([BASE + '/', BASE + '/index.html'])
     )
   )
-  self.skipWaiting()
+  // No skipWaiting aquí — esperamos que el usuario confirme la actualización
 })
 
 self.addEventListener('activate', e => {
@@ -17,6 +17,12 @@ self.addEventListener('activate', e => {
     )
   )
   self.clients.claim()
+})
+
+self.addEventListener('message', e => {
+  if (e.data?.type === 'SKIP_WAITING') {
+    self.skipWaiting()
+  }
 })
 
 self.addEventListener('fetch', e => {

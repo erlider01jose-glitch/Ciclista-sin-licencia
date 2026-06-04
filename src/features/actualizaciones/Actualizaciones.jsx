@@ -1,7 +1,7 @@
 import { CHANGELOG, VERSION } from '../../constants/version'
 import styles from './Actualizaciones.module.css'
 
-export default function Actualizaciones() {
+export default function Actualizaciones({ hayUpdate, onActualizar }) {
   return (
     <div className={styles.container}>
       <div className={styles.versionBadge}>
@@ -9,10 +9,23 @@ export default function Actualizaciones() {
         <span className={styles.version}>v{VERSION}</span>
       </div>
 
-      <div className={styles.estado}>
-        <span className={styles.estadoDot} />
-        No hay actualizaciones disponibles
-      </div>
+      {hayUpdate ? (
+        <div className={styles.updateCard}>
+          <span className={styles.nube}>☁️</span>
+          <div className={styles.updateTexto}>
+            <span className={styles.updateTitulo}>Nueva actualización disponible</span>
+            <span className={styles.updateSub}>Toca el botón para aplicarla</span>
+          </div>
+          <button className={styles.updateBtn} onClick={onActualizar}>
+            Actualizar
+          </button>
+        </div>
+      ) : (
+        <div className={styles.estado}>
+          <span className={styles.estadoDot} />
+          No hay actualizaciones disponibles
+        </div>
+      )}
 
       <div className={styles.historialTitulo}>Historial de cambios</div>
 

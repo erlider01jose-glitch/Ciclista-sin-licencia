@@ -35,6 +35,57 @@
   padding: 0 4px;
 }
 
+.updateCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1a1a2e;
+  border: 1px solid #f5c518;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.nube {
+  font-size: 1.8rem;
+  animation: float 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+.updateTexto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.updateTitulo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f0f0f0;
+}
+
+.updateSub {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.updateBtn {
+  background: #f5c518;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
 .estadoDot {
   width: 8px;
   height: 8px;
