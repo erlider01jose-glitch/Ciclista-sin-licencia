@@ -13,6 +13,7 @@ export const CHANGELOG = [
       'Botón + para añadir km de capital inicial, con botón ✏️ para editar',
       'Aviso de actualización disponible en Novedades y banner superior',
       'La app recuerda en qué pestaña estabas al recargarse',
+      'Fechas en rutas: muestra día de semana y tiempo relativo (hace X minutos/horas), y fecha completa al pasar 24h',
     ],
   },
   {

@@ -38,6 +38,29 @@ export function getRangoMes() {
   }
 }
 
+const DIAS   = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']
+const MESES  = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
+
+export function formatearFechaRuta(id) {
+  const diff    = Date.now() - id
+  const minutos = Math.floor(diff / 60000)
+  const horas   = Math.floor(diff / 3600000)
+
+  const diaNombre = DIAS[new Date(id).getDay()]
+
+  if (minutos < 1)  return `${diaNombre} · hace un momento`
+  if (minutos < 60) return `${diaNombre} · hace ${minutos} minuto${minutos === 1 ? '' : 's'}`
+  if (horas   < 24) return `${diaNombre} · hace ${horas} hora${horas === 1 ? '' : 's'}`
+
+  const d    = new Date(id)
+  const hh   = d.getHours()
+  const mm   = String(d.getMinutes()).padStart(2, '0')
+  const ampm = hh >= 12 ? 'pm' : 'am'
+  const h12  = hh % 12 || 12
+
+  return `${DIAS[d.getDay()]} ${d.getDate()} de ${MESES[d.getMonth()]} ${d.getFullYear()} · ${h12}:${mm} ${ampm}`
+}
+
 export function filtrarPorRango(rutas, filtro) {
   if (filtro === 'todas') return rutas
   const rango = filtro === 'semana'

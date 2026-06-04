@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
-import { filtrarPorRango } from '../../utils/fechas'
+import { filtrarPorRango, formatearFechaRuta } from '../../utils/fechas'
 import styles from './Historial.module.css'
 
 const FILTROS = [
@@ -118,7 +118,7 @@ export default function Historial() {
             rutasFiltradas.map(r => (
               <div key={r.id} className={styles.card}>
                 <div className={styles.cardHeader}>
-                  <span className={styles.fecha}>{r.fecha} · {r.hora}</span>
+                  <span className={styles.fecha}>{formatearFechaRuta(r.id)}</span>
                   <button className={styles.eliminar} onClick={() => eliminar(r.id)}>✕</button>
                 </div>
                 <div className={styles.cardBody}>
